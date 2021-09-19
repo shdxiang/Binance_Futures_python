@@ -114,4 +114,9 @@ class ContractType:
     CURRENT_MONTH = "current_month"
     NEXT_MONTH = "next_month"
 
-
+class ContractType2:
+    PERPETUAL = "PERPETUAL"
+    CURRENT_MONTH = "CURRENT_MONTH"
+    NEXT_MONTH = "NEXT_MONTH"
+    CURRENT_QUARTER = "CURRENT_QUARTER"
+    NEXT_QUARTER = "NEXT_QUARTER"

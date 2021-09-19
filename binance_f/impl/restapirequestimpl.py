@@ -207,7 +207,7 @@ class RestApiRequestImpl(object):
           
     def get_candlestick_data(self, symbol, interval, startTime, endTime, limit):
         check_should_not_none(symbol, "symbol")
-        check_should_not_none(symbol, "interval")
+        check_should_not_none(interval, "interval")
         builder = UrlParamsBuilder()
         builder.put_url("symbol", symbol)
         builder.put_url("interval", interval)
@@ -228,13 +228,13 @@ class RestApiRequestImpl(object):
         request.json_parser = parse
         return request
 
-    def get_continuous_candlestick_data(self, symbol, contract_type, interval, startTime, endTime, limit):
-        check_should_not_none(symbol, "symbol")
+    def get_continuous_candlestick_data(self, pair, contract_type, interval, startTime, endTime, limit):
+        check_should_not_none(pair, "pair")
         check_should_not_none(contract_type, "contract_type")
-        check_should_not_none(symbol, "interval")
+        check_should_not_none(interval, "interval")
         builder = UrlParamsBuilder()
-        builder.put_url("symbol", symbol)
-        builder.put_url("contract_type", contract_type)
+        builder.put_url("pair", pair)
+        builder.put_url("contractType", contract_type)
         builder.put_url("interval", interval)
         builder.put_url("startTime", startTime)
         builder.put_url("endTime", endTime)
