@@ -119,6 +119,19 @@ class RequestClient(object):
         response = call_sync(self.request_impl.get_candlestick_data(symbol, interval, startTime, endTime, limit))
         self.refresh_limits(response[1])
         return response[0]
+
+    def get_continuous_candlestick_data(self, symbol: 'str', contract_type: 'ContractType', interval: 'CandlestickInterval', 
+                            startTime: 'long' = None, endTime: 'long' = None, limit: 'int' = None) -> any:
+        """
+        Continuous Kline/Candlestick Data (MARKET_DATA)
+
+        GET /fapi/v1/continuousKlines
+
+        Continuous Kline/candlestick bars for a symbol. Klines are uniquely identified by their open time.
+        """
+        response = call_sync(self.request_impl.get_continuous_candlestick_data(symbol, contract_type, interval, startTime, endTime, limit))
+        self.refresh_limits(response[1])
+        return response[0]
             
     def get_mark_price(self, symbol: 'str' = None) -> any:
         """
